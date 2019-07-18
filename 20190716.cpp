@@ -25,6 +25,19 @@ float COST(int km, int grn)
 }
 
 
+int HOLIDAY(int holiday)
+{
+	switch (holiday)
+	{case 1:
+		cout << "Happy New Year" << endl;
+		break;
+	case 7:
+		cout << "Chrismas" << endl;
+
+	}
+
+}
+
 int main()
 {
 	cout << "Exercise 1" << endl;
@@ -54,6 +67,11 @@ int main()
 	float cost = COST(km, grn);
 	cout << "The cost of travel: " << cost << " grn" << endl;
 	cout << "=============================================================" << endl;
+
+	/*3. C++ 
+Написати функцію, яка отримує дату (день, місяць) і виводить назву свята, що випадає на цей день 
+(наприклад, 7.01 – Різдво, 9.05 – День Перемоги). Запрограмувати реакцію програми на 4 – 5 свят. */
+
 
 
 
