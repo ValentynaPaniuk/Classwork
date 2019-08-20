@@ -1,0 +1,12 @@
+﻿  Source20190820_Template_functions .cpp
+d:\paniuk\classwork\classwork20190819\classwork20190819\source20190820_template_functions .cpp(140): warning C4244: 'return': conversion from 'double' to 'T1', possible loss of data
+          with
+          [
+              T1=int
+          ]
+  d:\paniuk\classwork\classwork20190819\classwork20190819\source20190820_template_functions .cpp(62): note: see reference to function template instantiation 'T1 Average<int>(T1 [],const int,double)' being compiled
+          with
+          [
+              T1=int
+          ]
+  Classwork20190819.vcxproj -> D:\Paniuk\Classwork\Classwork20190819\Debug\Classwork20190820.exe
