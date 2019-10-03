@@ -1,0 +1,6 @@
+﻿  Classwork20191003.cpp
+d:\paniuk\classwork\classwork20191003\classwork20191003\classwork20191003.cpp(74): warning C4566: character represented by universal-character-name '\u0456' cannot be represented in the current code page (1252)
+d:\paniuk\classwork\classwork20191003\classwork20191003\classwork20191003.cpp(118): warning C4018: '<': signed/unsigned mismatch
+d:\paniuk\classwork\classwork20191003\classwork20191003\classwork20191003.cpp(150): warning C4018: '<': signed/unsigned mismatch
+d:\paniuk\classwork\classwork20191003\classwork20191003\classwork20191003.cpp(166): warning C4018: '<': signed/unsigned mismatch
+  Classwork20191003.vcxproj -> D:\Paniuk\Classwork\Classwork20191003\Debug\Classwork20191003.exe
