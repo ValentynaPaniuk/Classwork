@@ -49,7 +49,7 @@ struct animal {
 	int numberOfSpeciesAnimal;
 	string voice;
 
-	void MakeVoice()
+	void MakeVoice() //Функція в структурі
 	{
 		cout << nameAnimal << "GAV";
 	}
