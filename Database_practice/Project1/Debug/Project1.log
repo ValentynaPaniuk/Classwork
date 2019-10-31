@@ -1,2 +1,2 @@
 ﻿  Source.cpp
-  Project1.vcxproj -> D:\Paniuk\Classwork\Database_practice\Debug\Project1.exe
+d:\paniuk\classwork\database_practice\project1\source.cpp(322): error C3861: 'CreateDev': identifier not found

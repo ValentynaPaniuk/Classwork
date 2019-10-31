@@ -1,6 +1,7 @@
 # include <iostream>
 # include <ctime>
 # include <string>
+# include "Developer.h"
 
 using namespace std;
 
@@ -35,6 +36,8 @@ void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 {
 
 	cout << "----------------------------------------" << endl;
+
+			
 	for (int i = 0; i < numberOfCardBooks; i++)
 	{
 		cout << "Add card of the book: => " << i + 1 << endl;
@@ -83,6 +86,7 @@ struct cardClient
 	int monthOfBirthday;
 	int yearOfBirthday;
 
+
 	void ShowInfoCardClient()
 	{
 
@@ -90,7 +94,7 @@ struct cardClient
 	}
 };
 
-void ShowInfoClient(cardClient *cardClients, const int numberOfCardClients)
+void ShowInfoClient(cardClient *cardClients, int &numberOfCardClients)
 {
 	for (int i = 0; i < numberOfCardClients; i++)
 	{
@@ -99,10 +103,12 @@ void ShowInfoClient(cardClient *cardClients, const int numberOfCardClients)
 
 }
 
-void AddNewCardClient(cardClient *cardClients, const int numberOfCardClients)
+void AddNewCardClient(cardClient *cardClients, int &numberOfCardClients)
 {
+		
 	for (int i = 0; i < numberOfCardClients; i++)
 	{
+
 		cardClients[i].idCard = i + 1;
 		cout << "Add card of the client: => " << cardClients[i].idCard << endl;
 		cout << "Name of client:\t";
@@ -121,11 +127,12 @@ void AddNewCardClient(cardClient *cardClients, const int numberOfCardClients)
 		cout << "|   Add card of client " << cardClients[i].idCard << "     |" << endl;
 		cout << "----------------------------------------------------------" << endl;
 	}
-
+	
+	
 }
 
 
-void SortByName(cardClient *cardClients, const int numberOfCardClients)
+void SortByName(cardClient *cardClients, int numberOfCardClients)
 {
 	for (int i = 0; i < numberOfCardClients - 1; i++)
 	{
@@ -139,36 +146,13 @@ void SortByName(cardClient *cardClients, const int numberOfCardClients)
 	}
 }
 
-//Developer
-
-struct developer
-{
-	string devel;
-	string address;
-	string email;
-
-	void ShowInfoDev()
-	{
-		cout << "    Developer: \t" << devel << "\nAddress: \t" << address << "e-mail: \t" << email << endl;
-		cout << "                           All rights reserved." << endl;
-		cout << "     Support phone: +3(8)096-599-13-35 (paid from all Ukrainian networks)." << endl;
-	}
-};
-
-void CreateDev(developer dev)
-{
-
-	dev.devel = "Paniuk Valentyna";
-	dev.address = "str. Haidamatska, buil. 41, apt. 78, Rivne, 33000";
-	dev.email = "valentyna.paniuk@gmail.com";
-	dev.ShowInfoDev();
-}
 
 
 
 // Library
 struct library
 {
+	
 	cardBook book;
 	string name;
 	int booksCount;
@@ -177,6 +161,7 @@ struct library
 	string contactManager;
 	string workSchedule;
 	string history;
+
 	void ShowInfoLibrary()
 	{
 		cout << "LIBRARY:\t" << name << "\nAddress:\t" << address << "\nworkSchedule\t" << workSchedule << endl;
@@ -196,8 +181,8 @@ void CreateLibrary(library &lib)
 
 
 
-
-void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks, const int numberOfCardClients, cardClient *cardClients, developer dev, library &lib)
+//Menu
+void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks, int numberOfCardClients, cardClient *cardClients, developer dev, library &lib)
 {
 	
 
@@ -364,14 +349,19 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 
 
 
-int main()
+
+
+
+void FirstMenu()
 {
 	bool exit = false;
-
+	int menu = 8;
 	int numberOfCardBooks = 0;
 	int numberOfCardClients = 0;
-	int menu = 8;
 
+
+	developer dev;
+	library lib;
 	string personType;
 
 	system("cls");
@@ -390,16 +380,14 @@ int main()
 	cout << "\t\t\tAre you a client or manager?" << endl;
 	cin >> personType;
 
+	cout << "How many clients cards we will enter: " << endl;
+	cin >> numberOfCardClients;
+	cardClient *cardClients = new cardClient[numberOfCardClients];
+
 	cout << "How many book cards we will enter: " << endl;
 	cin >> numberOfCardBooks;
-	cout << "How many people do You want to add: " << endl;
-	cin >> numberOfCardClients;
-
-
 	cardBook *cardBooks = new cardBook[numberOfCardBooks];
-	cardClient *cardClients = new cardClient[numberOfCardClients];
-	developer dev;
-	library lib;
+
 
 	do
 	{
@@ -410,6 +398,7 @@ int main()
 
 		else if (personType == "manager" || personType == "Manager" || personType == "MANAGER")
 		{
+
 			MenuManager(menu, exit, cardBooks, numberOfCardBooks, numberOfCardClients, cardClients, dev, lib);
 		}
 	} while (personType == "client" || personType == "Client" || personType == "CLIENT" || personType == "manager" || personType == "Manager" || personType == "MANAGER");
@@ -417,14 +406,24 @@ int main()
 	cout << endl << "Thank You for visiting our library. BYE !!! " << endl;
 
 
-	//MenuManager(menu, exit, cardBooks, numberOfCardBooks, numberOfCardClients, cardClients, dev, lib);
+
+
+	delete[] cardBooks;
+	cardBooks = nullptr;
+
+	delete[] cardClients;
+	cardClients = nullptr;
 
 
 
+}
 
 
 
-
+int main()
+{
+	
+	FirstMenu();
 
 
 
