@@ -115,11 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Developer.cpp" />
+    <ClCompile Include="4CardBook.cpp" />
+    <ClCompile Include="5CardClient.cpp" />
+    <ClCompile Include="6Developer.cpp" />
+    <ClCompile Include="1FirstMenu.cpp" />
+    <ClCompile Include="3Library.cpp" />
+    <ClCompile Include="2SecondMenu.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Developer.h" />
+    <ClInclude Include="4CardBook.h" />
+    <ClInclude Include="5CardClient.h" />
+    <ClInclude Include="6Developer.h" />
+    <ClInclude Include="1FirstMenu.h" />
+    <ClInclude Include="3Library.h" />
+    <ClInclude Include="2SecondMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

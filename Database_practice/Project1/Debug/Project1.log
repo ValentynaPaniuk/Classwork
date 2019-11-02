@@ -1,2 +1,75 @@
-﻿  Source.cpp
-d:\paniuk\classwork\database_practice\project1\source.cpp(322): error C3861: 'CreateDev': identifier not found
+﻿  4CardBook.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+  5CardClient.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+  6Developer.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+  1FirstMenu.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(16): error C2084: функция "void FirstMenu(void)" уже имеет текст реализации
+  d:\шаг\classwork_\database_practice\project1\1firstmenu.h(16): note: см. предыдущее определение "FirstMenu"
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(34): error C2065: personType: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(37): error C2065: numberOfCardClients: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(41): error C2065: numberOfCardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(47): error C2065: personType: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(52): error C2065: personType: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: menu: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: cardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: numberOfCardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: numberOfCardClients: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: cardClients: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: dev: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(55): error C2065: lib: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(57): error C2065: personType: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(64): error C2065: cardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(64): error C2541: delete: нельзя удалять объекты, не являющиеся указателями
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(65): error C2065: cardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(67): error C2065: cardClients: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(67): error C2541: delete: нельзя удалять объекты, не являющиеся указателями
+d:\шаг\classwork_\database_practice\project1\1firstmenu.cpp(68): error C2065: cardClients: необъявленный идентификатор
+  3Library.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+  2SecondMenu.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: menu: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: cardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: numberOfCardBooks: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: numberOfCardClients: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: cardClients: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: dev: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2065: lib: необъявленный идентификатор
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2182: MenuManager: недопустимое использование типа "void"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(14): error C2365: MenuManager: переопределение; предыдущим определением было "функция"
+  d:\шаг\classwork_\database_practice\project1\2secondmenu.h(15): note:  см. объявление "MenuManager"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.cpp(15): error C2448: MenuManager: вероятно, инициализатор, использующий стиль функции, является определением функции
+  Source.cpp
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cardClients"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(23): error C2660: cardClient::ShowInfoCardClient: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\5cardclient.h(25): note:  см. объявление "cardClient::ShowInfoCardClient"
+d:\шаг\classwork_\database_practice\project1\2secondmenu.h(27): error C2660: cardBook::ShowInfoCardBook: функция не принимает 2 аргументов
+  d:\шаг\classwork_\database_practice\project1\4cardbook.h(28): note:  см. объявление "cardBook::ShowInfoCardBook"
+  Создание кода...

@@ -1,0 +1,31 @@
+book
+C++ Primer Plus (6th Edition)
+Stephen Prata
+Developer's Library
+400
+2016
+2017
+book
+Kobzar
+Taras Shevchenko
+Poems
+700
+2018
+2019
+magazine
+Vogue
+Anna Wintour
+Fashion
+30
+2019
+2019
+newspaper
+Voice of ukraine
+Verkhovna Rada
+20
+2019
+2016
+
+
+
+

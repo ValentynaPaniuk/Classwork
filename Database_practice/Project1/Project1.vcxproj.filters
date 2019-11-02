@@ -18,12 +18,42 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Developer.cpp">
+    <ClCompile Include="1FirstMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2SecondMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3Library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6Developer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="5CardClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="4CardBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Developer.h">
+    <ClInclude Include="1FirstMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="2SecondMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="3Library.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="4CardBook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="5CardClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="6Developer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
