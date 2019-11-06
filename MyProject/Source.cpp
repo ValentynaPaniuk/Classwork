@@ -43,6 +43,7 @@ struct cardBook
 	int pages;
 	int yearOfPublication;
 	int dateBookReceivedLibrary;
+	bool statusOfBook = false; // Якщо книга в бібліотеці
 
 
 
@@ -67,7 +68,7 @@ void ShowInfoCardBook(cardBook *cardBooks, const int numberOfCardBooks)
 // 1. Читання бази даних із файлу
 void FillCollectionFromFile(cardBook *&cardBooks) //11.Enter database from File\n";
 {
-	char temp[255];
+	
 	string path = "db.txt";
 	ifstream readFile;
 	readFile.open(path);
@@ -78,32 +79,20 @@ void FillCollectionFromFile(cardBook *&cardBooks) //11.Enter database from File\
 	else
 	{
 		cout << "Opened" << endl;
-		readFile.getline(temp, 255);
-		SIZE = readFile.eof();
-		cardBooks = new cardBook[SIZE];
-		for (int i=0; i<SIZE; i++)
-		{
-
-			readFile.getline(temp, 255);
-			cardBooks[i].idCardBook = stoi(temp);
-			readFile.getline(temp, 255);
-			cardBooks[i].kindBook = temp;
-			readFile.getline(temp, 255);
-			cardBooks[i].title = temp;
-			readFile.getline(temp, 255);
-			cardBooks[i].author = temp;
-			readFile.getline(temp, 255);
-			cardBooks[i].description = temp;
-			readFile.getline(temp, 255);
-			cardBooks[i].pages = stoi(temp);
-			readFile.getline(temp, 255);
-			cardBooks[i].yearOfPublication = stoi(temp);
-			readFile.getline(temp, 255);
-			cardBooks[i].dateBookReceivedLibrary = stoi(temp);
-			
-		}
+		
 	}
-
+	
+	string arr[255];
+	string data;
+	int i = 0;
+	while (!readFile.eof())
+	{
+		getline(readFile, data);
+		arr[i] = data;
+		cout << data << endl;
+		i++;
+	}
+	   	 
 	readFile.close();
 
 }
@@ -163,7 +152,7 @@ void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 	{
 		bool exit = false;
 		cardBooks[i].idCardBook = i + 1;
-		cout << "*****************  Add card of the book: => " << cardBooks[i].idCardBook <<"****************************"<<endl;
+		cout << "*****************  ADD CARD OF THE BOOK: => " << cardBooks[i].idCardBook <<"****************************"<<endl;
 		while (!exit)
 		{
 			cout << "=============================================================================" << endl;
@@ -228,6 +217,8 @@ void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 				exit = true;
 			}
 		}
+		cardBooks[i].statusOfBook = false;
+
 		cout << "----------------------------------------------" << endl;
 		cout << "| Add card " << i + 1 << "    |" << endl;
 		cout << "----------------------------------------------" << endl;
@@ -238,14 +229,11 @@ void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 
 //4. Видалення джерела із бази даних
 
-//void DelBookTitle(cardBook *cardBooks, int numberOfCardBooks, int menu, int index)
-//{
-//	bool exit = false;
-//	SIZE = 7;
-//	
-//	
-//
-//}
+void DelBookTitle(cardBook *cardBooks, int numberOfCardBooks, int menu, int index)
+{
+
+
+}
 
 // 5. Упорядкування по полях : тип інформаційного джерела(книга, журнал, газета) і назва
 
@@ -264,6 +252,23 @@ void SortByKind(cardBook *cardBooks, const int numberOfCardBooks)
 	}
 
 }
+
+void SortByAuthor(cardBook *cardBooks, const int numberOfCardBooks)
+{
+	cout << "Sorting by the author of book: " << endl;
+	for (int i = 0; i < SIZE + numberOfCardBooks - 1; i++)
+	{
+		for (int j = 0; j < numberOfCardBooks - i - 1; j++)
+		{
+			if (cardBooks[j].author > cardBooks[j + 1].author)
+			{
+				swap(cardBooks[j], cardBooks[j + 1]);
+			}
+		}
+	}
+
+}
+
 
 
 //6.1 Пошук : наявність заданої книги (відомі автор і назва)
@@ -479,19 +484,59 @@ void AddNewCardClient(cardClient *cardClients, const int numberOfCardClients)
 	for (int i = 0; i < numberOfCardClients; i++)
 	{
 		cardClients[i].idCard = i + 1;
-		cout << "Add card of the client: => " << cardClients[i].idCard << endl;
+		cout << "********************** Add card of the client: => " << i+1 << endl;
 		cout << "Name of client:\t";
 		cin >> cardClients[i].name;
 		cout << "Surname of client:\t";
 		cin >> cardClients[i].surname;
 		cout << "Hobby:\t";
 		cin >> cardClients[i].hobby;
-		cout << "Date of birthday:\t";
-		cin >> cardClients[i].dateOfBirthday;
-		cout << "Month of birthday:\t";
-		cin >> cardClients[i].monthOfBirthday;
-		cout << "Year of birthday:\t" << endl;
-		cin >> cardClients[i].yearOfBirthday;
+		
+		bool exit = false;
+		while (!exit)
+		{
+			cout << "Date of birthday:\t";
+			cin >> cardClients[i].dateOfBirthday;
+			if (cardClients[i].dateOfBirthday < 1 || cardClients[i].dateOfBirthday > 31)
+			{
+				cout << "!!! Enter the correct Day of birthday:" << endl;
+			}
+			else
+			{
+				exit = true;
+			}
+		}
+
+		exit = false;
+		while (!exit)
+		{
+			cout << "Month of birthday (from 1 to 12):\t";
+			cin >> cardClients[i].monthOfBirthday;
+			if ( cardClients[i].monthOfBirthday < 1 || cardClients[i].monthOfBirthday > 12)
+			{
+				cout << "!!! Enter the correct Month of birthday:" << endl;
+			}
+			else
+			{
+				exit = true;
+			}
+		}
+		
+		exit = false;
+		while (!exit)
+		{
+			cout << "Year of birthday:\t" << endl;
+			cin >> cardClients[i].yearOfBirthday;
+			if (cardClients[i].yearOfBirthday < 1930 || cardClients[i].yearOfBirthday > 2019)
+			{
+				cout << "!!! Enter the correct Year of birthday:" << endl;
+			}
+			else
+			{
+				exit = true;
+			}
+		}
+			
 		cout << "----------------------------------------------------------" << endl;
 		cout << "|   Add card of client " << cardClients[i].idCard << "     |" << endl;
 		cout << "----------------------------------------------------------" << endl;
@@ -513,6 +558,37 @@ void SortBySurname(cardClient *cardClients, const int numberOfCardClients)
 		}
 	}
 }
+
+
+//7. Пошук по прізвищу клієнта
+void FindCardClientSurname(cardClient *cardClients, const int numberOfCardClients)
+{
+	bool isSurname = false;
+	string CardClientsSurname;
+
+	cout << "Enter the Surname of Client do You want to find : " << endl;
+	cin >> CardClientsSurname;
+
+	for (int i = 0; i < numberOfCardClients; i++)
+	{
+		if (cardClients[i].surname == CardClientsSurname)
+		{
+			isSurname = true;
+			cardClients[i].ShowInfoCardClient();
+			cout << endl;
+		}
+	}
+	if (!isSurname)
+	{
+		cout << "This client is not in the library database" << endl;
+		cout << "***************************************" << endl;
+	}
+
+
+}
+
+
+
 
 //Developer
 
@@ -582,7 +658,7 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		cout << " =================     MENU   ==============================:\n";
 		cout << "  1. About Library:\n"; // Ввід бази даних
 		cout << "    11.Enter database from File\n";
-		cout << "    12.Enter database from Keyboard\n";
+		cout << "    12.Enter database from Keyboard\n";//+
 		cout << "**************************" << endl;
 		cout << "  2.Browsing the database:\n"; //Перегляд бази дних
 		cout << "**************************" << endl;
@@ -592,13 +668,14 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		cout << "    33.Add new card book:\n";
 		cout << "    34.Delete card book\n";
 		cout << "    35.Delete card client\n";
+		cout << "    36.Deletion of newspaper information for a certain year\n";
 		cout << "**************************" << endl;
 		cout << "  4.Database output:\n"; //Вивід бази даних
 		cout << "    41.In File\n"; //+
 		cout << "    42.On Screen\n";
 		cout << "**************************" << endl;
 		cout << "  5.Data search:\n";//Пошук
-		cout << "     51.By client's last name:\n";
+		cout << "     51.By client's last name:\n"; //+
 		cout << "     52.By the title and Author of the book:\n"; //+
 		cout << "     53.By the Title of magazine:\n"; //+
 		cout << "     54.By the Author of books\n"; //+
@@ -606,18 +683,19 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		cout << "     56.By the Year of publication of magazine\n"; //+
 		cout << "**************************" << endl;
 		cout << "  6.Sorting:\n"; //Сортування
-		cout << "     61.Sort by book kind:\n"; //+
-		cout << "     62.Sort by the author of the book:\n";
-		cout << "     63.Sort by visitor last name:\n";//+
+		cout << "     61.Sort by book Kind:\n"; //+
+		cout << "     62.Sort by the Author of the book:\n";//+
+		cout << "     63.Sort by visitor Last name:\n";//+
 		cout << "**************************" << endl;
 		cout << "  7.Reports:\n"; //Звіти
-		cout << "     71.Number of books in the category: fiction, detective, fashion, business, ... :\n";
+		cout << "     71.Number of books in the category (fiction, detective, fashion, business):\n";//+
+		cout << "     72.List of debtors of books by a certain author\n";
 		cout << "**************************" << endl;
-		cout << "  8.About the developer\n";
+		cout << "  8.About the developer\n";//+
 		cout << "**************************" << endl;
-		cout << "  9.Clear the screen\n";
+		cout << "  9.Clear the screen\n";//+
 		cout << "**************************" << endl;
-		cout << "  10.Exit\n\n";
+		cout << "  10.Exit\n\n";//+
 
 		cout << "Select menu item: ";
 		cin >> menu;
@@ -692,6 +770,13 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 			system("pause");
 			break;
 		}
+		case 36: //36.Deletion of newspaper information for a certain year\n";
+		{
+			system("cls");
+
+			system("pause");
+			break;
+		}
 		case 41: // 41.Database output in File\n";
 		{
 			system("cls");
@@ -709,7 +794,7 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		case 51: // 51.Data search by client's last name:\n";
 		{
 			system("cls");
-			SortBySurname(cardClients, numberOfCardClients);
+			FindCardClientSurname(cardClients, numberOfCardClients);
 			system("pause");
 			break;
 		}
@@ -736,7 +821,6 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 			menu = 8;
 			system("pause");
 			break;
-
 		}
 
 		case 55://55.By the Description of books\n";
@@ -746,7 +830,6 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 			menu = 8;
 			system("pause");
 			break;
-
 		}
 		case 56: // 56.By the Title and Year of publication of magazine\n";
 		{
@@ -766,6 +849,8 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		}
 		case 62: //62.Sort by the author of the book:\n";
 		{
+			SortByAuthor(cardBooks, numberOfCardBooks);
+			ShowInfoCardBook(cardBooks, numberOfCardBooks);
 			system("pause");
 			break;
 		}
@@ -778,11 +863,18 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 			break;
 		}
 
-		case 71:
+		case 71: //71.Number of books in the category(fiction, detective, fashion, business) : \n";
 		{
 			SumBooksDescription(cardBooks, numberOfCardBooks, menu, FindDescription);
 			menu = 8;
 			system("pause");
+			break;
+		}
+		case 72: // 72.List of debtors of books by a certain author\n";
+		{
+			system("cls");
+
+
 			break;
 		}
 
