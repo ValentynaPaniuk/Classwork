@@ -8,12 +8,11 @@
 using namespace std;
 int SIZE = 0;
 
-
 /*3. Предметна область - бібліотека.
 Розв'язувані задачі: видача довідок про наявність книг, журналів, газет. 
 
 Реалізувати наступні сервіси:
-1. Заповнення бази даних
+1. Заповнення бази даних 
 2. Перегляд даних про всі джерела
 //////////3. Доповнення бази даних записом джерела
 4. Видалення джерела із бази даних
@@ -79,33 +78,25 @@ void FillCollectionFromFile(cardBook *&cardBooks) //11.Enter database from File\
 	else
 	{
 		cout << "Opened" << endl;
+		string arr[255];
+		string data;
+		int i = 0;
+		while (!readFile.eof())
+		{
+			getline(readFile, data);
+			arr[i] = data;
+			cout << data << endl;
+			i++;
+		}
 		
 	}
 	
-	string arr[255];
-	string data;
-	int i = 0;
-	while (!readFile.eof())
-	{
-		getline(readFile, data);
-		arr[i] = data;
-		cout << data << endl;
-		i++;
-	}
+	
 	   	 
 	readFile.close();
 
 }
 
-
-void PrintBookCollectionFromFile(cardBook *&cardBooks)
-{
-	for (int i = 0; i < SIZE; i++)
-	{
-		cardBooks[i].ShowInfoCardBook();
-		cout << endl;
-	}
-}
 
 
 // 1. Запис даних у файл
@@ -148,7 +139,7 @@ void OutputCollectionInFile(cardBook *&cardBooks, int numberOfCardBooks)
 void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 {
 	cout << "You must add "<< SIZE + numberOfCardBooks <<" books:"<< endl;
-	for (int i = 0; i < SIZE + numberOfCardBooks; i++)
+	for (int i = 0; i < numberOfCardBooks; i++)
 	{
 		bool exit = false;
 		cardBooks[i].idCardBook = i + 1;
@@ -170,9 +161,11 @@ void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 
 		cout << "Title: \t";
 		cin >> cardBooks[i].title;
+		//getline(cin, cardBooks[i].title);
 		cout << "Author: \t";
 		cin >> cardBooks[i].author;
-		cout << "Description: \t";
+		//getline(cin, cardBooks[i].author);
+		cout << "Description (science, technology, math, physics, detective, fantasy, fashion, business, accounting, ): \t";
 		cin >> cardBooks[i].description;
 		exit = false;
 		while (!exit)
@@ -227,13 +220,8 @@ void CreateBookCollection(cardBook *cardBooks, int &numberOfCardBooks)
 
 }
 
-//4. Видалення джерела із бази даних
-
-void DelBookTitle(cardBook *cardBooks, int numberOfCardBooks, int menu, int index)
-{
 
 
-}
 
 // 5. Упорядкування по полях : тип інформаційного джерела(книга, журнал, газета) і назва
 
@@ -253,6 +241,7 @@ void SortByKind(cardBook *cardBooks, const int numberOfCardBooks)
 
 }
 
+// Сортування по прізвищу автора
 void SortByAuthor(cardBook *cardBooks, const int numberOfCardBooks)
 {
 	cout << "Sorting by the author of book: " << endl;
@@ -268,8 +257,6 @@ void SortByAuthor(cardBook *cardBooks, const int numberOfCardBooks)
 	}
 
 }
-
-
 
 //6.1 Пошук : наявність заданої книги (відомі автор і назва)
 void FindCardBook(cardBook *cardBooks, const int numberOfCardBooks, int menu, string FindBookTitle, string FindBookAuthor)
@@ -322,8 +309,6 @@ void FindMagazineTitle(cardBook *cardBooks, const int numberOfCardBooks, string 
 			}
 
 }
-
-
 
 
 //7. Вибірка : книги автора ХХ;
@@ -443,6 +428,66 @@ void SumBooksDescription(cardBook *cardBooks, const int numberOfCardBooks, int m
 
 
 // 11. Корекція : видалення зведень про газети за певний рік
+
+void DelYearNewspaper(cardBook *cardBooks, int numberOfCardBooks, int menu)
+{
+	int DelYearNewspaper;
+	bool exit = false;
+	int counter = 0;
+
+	while (!exit)
+	{
+		cout << "Enter the Year the newspaper was printed for removal: " << endl;
+		cin >> DelYearNewspaper;
+
+		for (int i = 0; i < SIZE + numberOfCardBooks; i++)
+		{
+			if (DelYearNewspaper == cardBooks[i].yearOfPublication && cardBooks[i].kindBook == "newspaper")
+			{
+				cardBooks[i].ShowInfoCardBook();
+				exit = true;
+				counter++;
+			}
+			else
+			{
+				cout << "Enter the correct Year the newspaper was printed" << endl;
+			}
+		}
+	}
+
+	int iterator = 0;
+	int size = SIZE + numberOfCardBooks - counter;
+	cardBook *NewCardBooks = new cardBook[size];
+	for (int i = 0; i < size; i++)
+	{
+		if (cardBooks[i].yearOfPublication != DelYearNewspaper)
+		{
+			NewCardBooks[iterator].idCardBook = cardBooks[i].idCardBook;
+			NewCardBooks[iterator].kindBook = cardBooks[i].kindBook;
+			NewCardBooks[iterator].title = cardBooks[i].title;
+			NewCardBooks[iterator].author = cardBooks[i].author;
+			NewCardBooks[iterator].description = cardBooks[i].description;
+			NewCardBooks[iterator].pages = cardBooks[i].pages;
+			NewCardBooks[iterator].yearOfPublication = cardBooks[i].yearOfPublication;
+			NewCardBooks[iterator].dateBookReceivedLibrary = cardBooks[i].dateBookReceivedLibrary;
+			iterator++;
+		}
+		else continue;
+	}
+
+	delete[] cardBooks;
+	cardBooks = NewCardBooks;
+	
+	cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
+	for (int i = 0; i < size; i++)
+	{
+		cardBooks[i].ShowInfoCardBook();
+
+	}
+}
+		
+
+
 
 
 // 12. Табличний звіт : список боржників книг певного автора
@@ -758,6 +803,9 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		{
 			system("cls");
 			
+			
+			system("cls");
+			
 			//ShowInfoCardBook(cardBooks, numberOfCardBooks);
 
 			system("pause");
@@ -773,6 +821,8 @@ void MenuManager(int menu, bool exit, cardBook *cardBooks, int numberOfCardBooks
 		case 36: //36.Deletion of newspaper information for a certain year\n";
 		{
 			system("cls");
+			DelYearNewspaper(cardBooks, numberOfCardBooks, menu);
+					
 
 			system("pause");
 			break;
@@ -952,7 +1002,7 @@ void FirstMenu()
 			; // Calls Function mainMenu
 		}
 
-		else if (personType == "manager" || personType == "Manager" || personType == "MANAGER")
+		else if (personType == "manager" || personType == "Manager" || personType == "MANAGER" || personType == "m")
 		{
 			cout << "How many clients cards we will enter: " << endl;
 			cin >> numberOfCardClients;
@@ -962,7 +1012,7 @@ void FirstMenu()
 			cin >> numberOfCardBooks;
 
 			cardClient *cardClients = new cardClient[numberOfCardClients];
-			cardBook *cardBooks = new cardBook[numberOfCardBooks];
+			cardBook *cardBooks = new cardBook[SIZE + numberOfCardBooks];
 
 
 			//MenuManager(menu, exit, cardBooks, numberOfCardBooks, numberOfCardClients, cardClients, dev, lib, SIZE, FindBookTitle, FindBookAuthor, FindDescription, FindYearMagazine);
